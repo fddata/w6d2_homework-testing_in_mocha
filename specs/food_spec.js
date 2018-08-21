@@ -8,8 +8,15 @@ describe('Food', function(){
     bread = new Food('bread', 15);
   });
 
-  xit('should have a name');
-  xit('should have a replenishment value');
+  it('should have a name', function(){
+    const actual = bread.name;
+    assert.strictEqual(actual, 'bread');
+  });
+
+  it('should have a replenishment value', function(){
+    const actual = bread.replenishmentValue;
+    assert.strictEqual(actual, 15);
+  });
 
 });
 
