@@ -7,7 +7,7 @@ const Task = function(difficulty, urgency, reward){
 
 
 Task.prototype.markComplete = function () {
-  this.taskComplete = true;
+  this.complete = true;
 };
 
 module.exports = Task;

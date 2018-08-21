@@ -5,13 +5,29 @@ let task;
 
 describe('Task', function(){
   beforeEach(function(){
-    taskKillDragon = new Task('high', 'urgent', 'magic potion');
+    taskKillDragon = new Task(85, 'urgent', 'magic potion');
   });
 
-  xit('should have a difficulty level');
-  xit('should have an urgency level');
-  xit('should have a reward');
-  xit('should be able to be marked as completed');
+  it('should have a difficulty level', function(){
+    const actual = taskKillDragon.difficulty;
+    assert.strictEqual(actual, 85);
+  });
+
+  it('should have an urgency level',function(){
+    const actual = taskKillDragon.urgency;
+    assert.strictEqual(actual, 'urgent');
+  });
+
+  it('should have a reward', function(){
+    const actual = taskKillDragon.reward;
+    assert.strictEqual(actual, 'magic potion');
+  });
+
+  it('should be able to be marked as completed', function(){
+    taskKillDragon.markComplete();
+    const actual = taskKillDragon.complete;
+    assert.strictEqual(actual, true);
+  });
 
 
 });
