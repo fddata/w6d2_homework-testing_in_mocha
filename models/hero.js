@@ -44,6 +44,26 @@ Hero.prototype.sortTaskUrgencyUrgent = function () {
   });
 };
 
+
+Hero.prototype.viewTasksComplete = function () {
+   return this.tasks.filter(function(i) {return (i.complete == true);
+
+   });
+};
+
+Hero.prototype.viewTasksIncomplete = function () {
+   return this.tasks.filter(function(i) {return (i.complete == false);
+
+   });
+};
+
+// ar = [ 1, 2, 3, 4 ];
+// ar = ar.filter( function(item) {
+//     return !(item > 3);
+// });
+
+
+
 module.exports = Hero;
 
 // - A Hero has a name

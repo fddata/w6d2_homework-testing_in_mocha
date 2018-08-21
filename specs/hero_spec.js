@@ -80,6 +80,17 @@ describe('Hero', function(){
     );
   });
 
+  it(' should be able to view tasks that are marked as completed.', function(){
+    taskKillDragon.markComplete();
+    const actual = hero.viewTasksComplete();
+    assert.deepEqual(actual [taskKillDragon]);
+  });
+
+  it('should be able to view tasks that are marked as incomplete', function(){
+    taskKillDragon.markComplete();
+    const actual = hero.viewTasksIncomplete();
+    assert.deepEqual(actual, [taskWashBoots, taskRescueMaiden]);
+  });
 });
 
 
