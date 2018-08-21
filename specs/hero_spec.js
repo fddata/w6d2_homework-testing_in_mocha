@@ -14,7 +14,7 @@ describe('Hero', function(){
     steak = new Food('steak', 30);
     taskKillDragon = new Task(85, 90, 'magic potion');
     taskRescueMaiden = new Task(50, 50, 'gold pieces');
-    taskWashBoots = new Task(5, 5, 'clean boots');
+    taskWashBoots = new Task(5, 100, 'clean boots');
   });
 
   it('should have a name', function(){
@@ -54,7 +54,31 @@ describe('Hero', function(){
     assert.strictEqual(actual, 95);
   });
 
-  xit('should be able to sort their tasks by difficulty, urgency or reward');
+  it('should be able to sort their tasks by difficulty', function(){
+    hero.sortTaskDifficultyEasy();
+    const actual = hero.tasks;
+    assert.deepEqual(actual, [taskWashBoots,  taskRescueMaiden, taskKillDragon ]);
+  });
+
+  it('should be able to sort their tasks by difficulty reversed', function(){
+    hero.sortTaskDifficultyHard();
+    const actual = hero.tasks;
+    assert.deepEqual(actual, [taskKillDragon, taskRescueMaiden, taskWashBoots ]);
+  });
+
+  it('should be able to sort their tasks by urgency', function(){
+    hero.sortTaskUrgencyNotUrgent();
+    const actual = hero.tasks;
+    assert.deepEqual(actual, [taskRescueMaiden, taskKillDragon, taskWashBoots]
+    );
+  });
+
+  it('should be able to sort their tasks by urgency reversed', function(){
+    hero.sortTaskUrgencyUrgent();
+    const actual = hero.tasks;
+    assert.deepEqual(actual, [taskWashBoots, taskKillDragon, taskRescueMaiden]
+    );
+  });
 
 });
 

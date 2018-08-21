@@ -19,8 +19,29 @@ Hero.prototype.eatFood = function (food) {
 };
 
 
-Hero.prototype.sortTaskDifficulty = function () {
+Hero.prototype.sortTaskDifficultyEasy = function () {
+  this.tasks.sort(function(a,b){
+    return a.difficulty - b.difficulty;
+  });
+};
 
+Hero.prototype.sortTaskDifficultyHard = function () {
+  this.tasks.sort(function(a,b){
+    return b.difficulty - a.difficulty;
+  });
+};
+
+
+Hero.prototype.sortTaskUrgencyNotUrgent = function () {
+  this.tasks.sort(function(a,b){
+    return a.urgency - b.urgency;
+  });
+};
+
+Hero.prototype.sortTaskUrgencyUrgent = function () {
+  this.tasks.sort(function(a,b){
+    return b.urgency - a.urgency;
+  });
 };
 
 module.exports = Hero;
