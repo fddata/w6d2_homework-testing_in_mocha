@@ -60,12 +60,6 @@ Hero.prototype.viewTasksIncomplete = function () {
    });
 };
 
-// ar = [ 1, 2, 3, 4 ];
-// ar = ar.filter( function(item) {
-//     return !(item > 3);
-// });
-
-
 
 module.exports = Hero;
 
