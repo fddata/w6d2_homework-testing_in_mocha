@@ -1,0 +1,14 @@
+{
+  "name": "homework",
+  "version": "1.0.0",
+  "description": "The task is to test drive the beginnings of an adventure game!",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha specs"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mocha": "^5.2.0"
+  }
+}
