@@ -6,14 +6,33 @@ let hero;
 describe('Hero', function(){
   beforeEach(function(){
 
-    hero = new Hero('Arthur', 100, 'steak', ['kill the dragon', 'rescue the maiden']);
+    hero = new Hero('Arthur', 80, 'steak', ['kill the dragon', 'rescue the maiden']);
   });
 
-  xit('should have a name');
-  xit('should have health');
-  xit('should have favourite food');
-  xit('should be able to speak their name');
-  xit('should have a collection of tasks to complete');
+  it('should have a name', function(){
+    const actual = hero.name;
+    assert.strictEqual(actual, 'Arthur');
+  });
+
+  it('should have health', function(){
+    const actual = hero.health;
+    assert.strictEqual(actual, 80);
+  });
+
+  it('should have favourite food', function(){
+    const actual = hero.favFood;
+    assert.strictEqual(actual, 'steak');
+  });
+
+  it('should be able to speak their name', function(){
+    const actual = hero.talk();
+    assert.strictEqual(actual, "Hello, my name is Arthur, and I'm here to quest!");
+  });
+
+  it('should have a collection of tasks to complete', function(){
+    const actual = hero.tasks;
+    assert.deepEqual(actual, ['kill the dragon', 'rescue the maiden']);
+  });
 
 });
 

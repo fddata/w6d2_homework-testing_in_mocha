@@ -7,8 +7,10 @@ const Task = function(difficulty, urgency, reward){
 
 
 Task.prototype.markComplete = function () {
-  this.complete = true;
+  this.taskComplete = true;
 };
+
+module.exports = Task;
 
 
 // - A task has a difficulty level

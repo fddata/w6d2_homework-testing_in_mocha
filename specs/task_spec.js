@@ -5,7 +5,7 @@ let task;
 
 describe('Task', function(){
   beforeEach(function(){
-    task = new Task('high', 'urgent', 'magic potion');
+    taskKillDragon = new Task('high', 'urgent', 'magic potion');
   });
 
   xit('should have a difficulty level');
