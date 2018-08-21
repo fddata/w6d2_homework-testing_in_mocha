@@ -5,7 +5,7 @@ let task;
 
 describe('Task', function(){
   beforeEach(function(){
-    taskKillDragon = new Task(85, 'urgent', 'magic potion');
+    taskKillDragon = new Task(85, 90, 'magic potion');
   });
 
   it('should have a difficulty level', function(){
@@ -15,7 +15,7 @@ describe('Task', function(){
 
   it('should have an urgency level',function(){
     const actual = taskKillDragon.urgency;
-    assert.strictEqual(actual, 'urgent');
+    assert.strictEqual(actual, 90);
   });
 
   it('should have a reward', function(){

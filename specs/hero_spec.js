@@ -1,12 +1,20 @@
 const assert = require('assert');
 const Hero = require('../models/hero.js');
+const Food = require('../models/food.js');
+const Task = require('../models/task.js');
 
-let hero;
+let hero, bread, steak, taskWashBoots, taskKillDragon, taskRescueMaiden;
+
 
 describe('Hero', function(){
   beforeEach(function(){
 
-    hero = new Hero('Arthur', 80, 'steak', ['kill the dragon', 'rescue the maiden']);
+    hero = new Hero('Arthur', 50, steak, [taskKillDragon, taskWashBoots, taskRescueMaiden]);
+    bread = new Food('bread', 15);
+    steak = new Food('steak', 30);
+    taskKillDragon = new Task(85, 90, 'magic potion');
+    taskRescueMaiden = new Task(50, 50, 'gold pieces');
+    taskWashBoots = new Task(5, 5, 'clean boots');
   });
 
   it('should have a name', function(){
@@ -16,11 +24,11 @@ describe('Hero', function(){
 
   it('should have health', function(){
     const actual = hero.health;
-    assert.strictEqual(actual, 80);
+    assert.strictEqual(actual, 50);
   });
 
   it('should have favourite food', function(){
-    const actual = hero.favFood;
+    const actual = hero.favFood.name;
     assert.strictEqual(actual, 'steak');
   });
 
@@ -31,8 +39,22 @@ describe('Hero', function(){
 
   it('should have a collection of tasks to complete', function(){
     const actual = hero.tasks;
-    assert.deepEqual(actual, ['kill the dragon', 'rescue the maiden']);
+    assert.deepEqual(actual, [taskKillDragon, taskWashBoots, taskRescueMaiden]);
   });
+
+  it('should be able to eat food and increase health by replenishment value', function(){
+    hero.eatFood(bread);
+    const actual = hero.health;
+    assert.strictEqual(actual, 65);
+  });
+
+  it('should be able to increase health by 1.5X replenishment value if is favourite food', function(){
+    hero.eatFood(steak);
+    const actual = hero.health;
+    assert.strictEqual(actual, 95);
+  });
+
+  xit('should be able to sort their tasks by difficulty, urgency or reward');
 
 });
 
