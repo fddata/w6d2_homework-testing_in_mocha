@@ -2,8 +2,9 @@ const assert = require('assert');
 const Hero = require('../models/hero.js');
 const Food = require('../models/food.js');
 const Task = require('../models/task.js');
+const Rat = require('../models/rat.js');
 
-let hero, bread, steak, taskWashBoots, taskKillDragon, taskRescueMaiden;
+let rat, hero, bread, steak, taskWashBoots, taskKillDragon, taskRescueMaiden;
 
 
 describe('Hero', function(){
@@ -15,6 +16,7 @@ describe('Hero', function(){
     taskKillDragon = new Task(85, 90, 'magic potion');
     taskRescueMaiden = new Task(50, 50, 'gold pieces');
     taskWashBoots = new Task(5, 100, 'clean boots');
+    rat = new Rat();
   });
 
   it('should have a name', function(){
@@ -91,7 +93,17 @@ describe('Hero', function(){
     const actual = hero.viewTasksIncomplete();
     assert.deepEqual(actual, [taskWashBoots, taskRescueMaiden]);
   });
+
+  it('should lose health when eating poisonous food', function(){
+    rat.touchFood(steak); //steak is now poisonous
+    hero.eatFood(steak);
+    const result = hero.health; //health should be halved
+    assert.strictEqual(result, 25);
+  });
+
 });
+
+
 
 
 
@@ -100,3 +112,5 @@ describe('Hero', function(){
 // - A Hero has a favourite food
 // - A Hero can talk saying their name
 // - A Hero has a collection of tasks to complete
+
+// - Heroes that eat poisonous food should lose health.
