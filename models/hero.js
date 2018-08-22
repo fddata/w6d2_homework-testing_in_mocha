@@ -49,15 +49,13 @@ Hero.prototype.sortTaskUrgencyUrgent = function () {
 
 
 Hero.prototype.viewTasksComplete = function () {
-   return this.tasks.filter(function(i) {return (i.complete == true);
-
-   });
+  // arrow function for tasks complete
+   return this.tasks.filter(task => task.complete == true);
 };
 
 Hero.prototype.viewTasksIncomplete = function () {
-   return this.tasks.filter(function(i) {return (i.complete == false);
-
-   });
+  // arrow function for tasks incomplete
+  return this.tasks.filter(task => task.complete == false);
 };
 
 
