@@ -21,14 +21,14 @@ Hero.prototype.eatFood = function (food) {
  }
 };
 
-
+//generic task sorting ascending
 Hero.prototype.sortTasks = function (property) {
   this.tasks.sort(function(a,b){
     return a[property] - b[property];
   });
 };
 
-
+//generic task sorting descending
 Hero.prototype.sortTasksReverse = function (property) {
   this.tasks.sort(function(a,b){
     return b[property] - a[property];
@@ -38,13 +38,15 @@ Hero.prototype.sortTasksReverse = function (property) {
 
 
 Hero.prototype.viewTasksComplete = function () {
-  // arrow function for tasks complete
-   return this.tasks.filter(task => task.complete == true);
+  // arrow function for tasks complete, note == true isn't necessary
+   // return this.tasks.filter(task => task.complete == true);
+   return this.tasks.filter(task => task.complete);
 };
 
 Hero.prototype.viewTasksIncomplete = function () {
-  // arrow function for tasks incomplete
-  return this.tasks.filter(task => task.complete == false);
+  // note == false is unnecessary as .complete is a boolean
+  // return this.tasks.filter(task => task.complete == false);
+  return this.tasks.filter(task => !task.complete);
 };
 
 
