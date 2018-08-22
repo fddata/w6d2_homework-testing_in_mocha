@@ -22,30 +22,19 @@ Hero.prototype.eatFood = function (food) {
 };
 
 
-Hero.prototype.sortTaskDifficultyEasy = function () {
+Hero.prototype.sortTasks = function (property) {
   this.tasks.sort(function(a,b){
-    return a.difficulty - b.difficulty;
-  });
-};
-
-Hero.prototype.sortTaskDifficultyHard = function () {
-  this.tasks.sort(function(a,b){
-    return b.difficulty - a.difficulty;
+    return a[property] - b[property];
   });
 };
 
 
-Hero.prototype.sortTaskUrgencyNotUrgent = function () {
+Hero.prototype.sortTasksReverse = function (property) {
   this.tasks.sort(function(a,b){
-    return a.urgency - b.urgency;
+    return b[property] - a[property];
   });
 };
 
-Hero.prototype.sortTaskUrgencyUrgent = function () {
-  this.tasks.sort(function(a,b){
-    return b.urgency - a.urgency;
-  });
-};
 
 
 Hero.prototype.viewTasksComplete = function () {

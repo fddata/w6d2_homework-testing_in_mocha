@@ -57,26 +57,27 @@ describe('Hero', function(){
   });
 
   it('should be able to sort their tasks by difficulty', function(){
-    hero.sortTaskDifficultyEasy();
+    hero.sortTasks('difficulty');
     const actual = hero.tasks;
     assert.deepEqual(actual, [taskWashBoots,  taskRescueMaiden, taskKillDragon ]);
   });
 
   it('should be able to sort their tasks by difficulty reversed', function(){
-    hero.sortTaskDifficultyHard();
+    hero.sortTasksReverse('difficulty');
     const actual = hero.tasks;
     assert.deepEqual(actual, [taskKillDragon, taskRescueMaiden, taskWashBoots ]);
   });
 
   it('should be able to sort their tasks by urgency', function(){
-    hero.sortTaskUrgencyNotUrgent();
+    hero.sortTasks('urgency');
     const actual = hero.tasks;
     assert.deepEqual(actual, [taskRescueMaiden, taskKillDragon, taskWashBoots]
     );
   });
 
   it('should be able to sort their tasks by urgency reversed', function(){
-    hero.sortTaskUrgencyUrgent();
+    // hero.sortTaskUrgencyUrgent();
+    hero.sortTasksReverse('urgency');
     const actual = hero.tasks;
     assert.deepEqual(actual, [taskWashBoots, taskKillDragon, taskRescueMaiden]
     );
