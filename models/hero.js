@@ -10,7 +10,7 @@ Hero.prototype.talk = function () {
 };
 
 Hero.prototype.eatFood = function (food) {
-  if (food.isPoisonous === true){
+  if (food.isPoisonous){ //note === true is unnecessary as using boolean
     this.health *= 0.5;
   }
   else if(this.favFood.name === food.name){
